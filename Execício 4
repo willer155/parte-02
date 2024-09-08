@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estação do Ano</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Determine a Estação do Ano</h1>
+        <label for="mes">Mês (1-12):</label>
+        <input type="number" id="mes" min="1" max="12" placeholder="Digite o mês" />
+        <button onclick="determinarEstacao()">Verificar Estação</button>
+        <div class="result" id="resultado"></div>
+    </div>
+
+    <script>
+        function determinarEstacao() {
+            const mes = parseInt(document.getElementById('mes').value);
+            let estacao;
+
+            if (mes < 1 || mes > 12 || isNaN(mes)) {
+                estacao = "Mês inválido! Por favor, insira um valor entre 1 e 12.";
+            } else if (mes >= 3 && mes <= 5) {
+                estacao = "Primavera";
+            } else if (mes >= 6 && mes <= 8) {
+                estacao = "Verão";
+            } else if (mes >= 9 && mes <= 11) {
+                estacao = "Outono";
+            } else {
+                estacao = "Inverno";
+            }
+
+            document.getElementById('resultado').innerText = `A estação do ano é ${estacao}.`;
+        }
+    </script>
+</body>
+</html>
